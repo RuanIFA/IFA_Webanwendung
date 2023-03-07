@@ -1,0 +1,30 @@
+<!-- Eigenentwicklung -->
+{% extends "base.html" %}
+
+{% block app_content %}
+	<h1>Reservierungen der Luxury Rents GmbH</h1><br>
+
+	<table class="table">
+		<tr>
+			<th>Modell</th>
+			<th>Datum</th>
+			<th>Preis</th>
+			<th>Status</th>
+			<th>Kunde</th>
+			<th>Bemerkungen</th>
+			<th>Action</th>
+		</tr>
+
+		{% for cars in car %}
+		<tr>
+			<td>{{ cars.model }}</td>
+			<td>{{ cars.date.strftime('%Y-%m-%d') }}</td>
+			<td>{{ cars.price }}</td>
+			<td>{{ cars.status }}</td>
+			<td>{{ cars.customer }}</td>
+			<td>{{ cars.notes }}</td>
+			<td><a href="edit/{{ cars.id }}">Bearbeiten</a> | <a href="delete/{{ cars.id }}">Löschen</a></td>
+		</tr>
+		{% endfor %}
+	</table> 
+{% endblock %}

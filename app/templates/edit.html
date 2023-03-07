@@ -1,0 +1,50 @@
+<!-- Eigenentwicklung -->
+{% extends "base.html" %}
+
+{% block app_content %}
+	<h1>Reservierung bearbeiten</h1><br>
+        <form action="" method="post">
+			{{ form.csrf_token }}
+		<p>
+			{{ form.model.label }}:<br>
+			{{ form.model(size=50) }}<br>
+			{% for error in form.model.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.date.label }}:<br>
+			(Format: YYYY-MM-DD)<br>
+			{{ form.date(size=15) }}<br>
+			{% for error in form.date.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.price.label }}:<br>
+			{{ form.price(size=15) }}<br>
+			{% for error in form.price.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.status.label }}:<br>
+			{{ form.status() }}
+		</p>
+		<p>
+			{{ form.customer.label }}:<br>
+			{{ form.customer(size=50) }}<br>
+			{% for error in form.customer.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.notes.label }}:<br>
+			{{ form.notes(size=50) }}<br>
+			{% for error in form.notes.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>{{ form.submit() }}</p>			
+	</form>
+{% endblock %}
