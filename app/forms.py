@@ -37,7 +37,7 @@ class CarsForm(FlaskForm):
     date = StringField('Reservierungsdatum', validators=[DataRequired()])
     price = StringField('Preis', validators=[DataRequired()])
     status = SelectField('Status', choices=[('bezahlt'), ('nicht bezahlt')])
-    customer = StringField('Reserviert von', validators=[DataRequired()])
+    customer = StringField('Name', validators=[DataRequired()])
     notes = StringField('Bemerkungen')
     submit = SubmitField('Bestätigen')
     

@@ -59,7 +59,7 @@ class Cars(db.Model):
         data2 = {
                 'id': self.id,
                 'model': self.model,
-                #'date': self.date,
+                'date': self.date,
                 'price': self.price,
                 'status': self.status,
                 'customer': self.customer,
@@ -71,8 +71,8 @@ class Cars(db.Model):
         return data2
     
     def to_collection():
-        cars = Cars.query.all()
-        data2 = {'items': [item.to_dict() for item in cars]}
+        car = Cars.query.all()
+        data2 = {'items': [item.to_dict() for item in car]}
         return(data2)
 
     def __repr__(self):

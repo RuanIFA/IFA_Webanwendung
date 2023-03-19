@@ -15,10 +15,10 @@ def get_users2():
 
 @app.route('/api/cars/<id>', methods=['GET'])
 def get_cars(id):
-    data2 = User.query.get_or_404(id).to_dict()
+    data2 = Cars.query.get_or_404(id).to_dict()
     return jsonify(data2)
 
 @app.route('/api/cars', methods=['GET'])
 def get_cars2():
-    data2 = User.to_collection()
+    data2 = Cars.to_collection()
     return jsonify(data2)
